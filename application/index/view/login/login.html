@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" class="fullscreen-bg">
+<head>
+    <title>管理员登录</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- VENDOR CSS -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="/assets/login/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/login/style.css">
+    <link rel="stylesheet" href="/assets/css/bootstrapValidator.min.css">
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="/assets/login/main.css">
+    <script src="/assets/js/jquery-1.10.2.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/bootstrapValidator.min.js"></script>
+</head>
+<body>
+<div id="wrapper">
+    <div class="vertical-align-wrap">
+        <div class="vertical-align-middle">
+            <div class="auth-box ">
+                <div class="left">
+                    <div class="content">
+                        <div class="header">
+                            <div class="logo text-center"><img src="/assets/img/logo-dark.png" alt="Klorofil Logo">
+                            </div>
+                        </div>
+                        <form method="post" id="login-form" class="form-auth-small"
+                              action="{:url('index/login/handle')}">
+                            <div class="form-group">
+                                <label for="signin-email" class="control-label sr-only">用户账号</label>
+                                <input autocomplete="off" type="text" name="username" class="form-control"
+                                       id="signin-email" value="" placeholder="用户账号">
+                            </div>
+                            <div class="form-group">
+                                <label for="signin-password" class="control-label sr-only">登录密码</label>
+                                <input autocomplete="off" type="password" name="password" class="form-control"
+                                       id="signin-password" value=""
+                                       placeholder="登录密码">
+                            </div>
+                            <div class="form-group">
+                                <label for="signin-code" class="control-label sr-only">验证码</label>
+                                <input autocomplete="off" type="text" name="captcha"
+                                       class="form-control form-control-short" id="signin-code" value=""
+                                       placeholder="验证码">
+                                <div><img src="{:url('index/login/verify')}" class="captcha" alt="captcha"/></div>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">登录</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="overlay"></div>
+                    <div class="content text">
+                        <h1 class="heading">使用水费征收管理系统</h1>
+                        <p>用水管理更轻松</p>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END WRAPPER -->
+<script>
+    $(document).ready(function () {
+        $('.captcha').click(function () {
+            $(this).attr('src', '/index/login/verify');
+        });
+
+        $('#login-form').bootstrapValidator({
+            message: 'This value is not valid',
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                username: {
+                    message: 'The username is not valid',
+                    validators: {
+                        notEmpty: {
+                            message: '用户账户不能为空'
+                        },
+                        stringLength: {
+                            min: 5,
+                            max: 30,
+                            message: '用户名长度必须为5到30位'
+                        },
+                        regexp: {
+                            regexp: /^[a-zA-Z0-9_\.]+$/,
+                            message: '用户名格式不正确'
+                        }
+                    }
+                },
+                password: {
+                    validators: {
+                        notEmpty: {
+                            message: '登录密码不能为空'
+                        }
+                    }
+                },
+                captcha: {
+                    validators: {
+                        notEmpty: {
+                            message: '验证码不能为空'
+                        }
+                    }
+                }
+            }
+        });
+    })
+</script>
+</body>
+</html>

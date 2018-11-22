@@ -1,0 +1,57 @@
+<div id="wrapper">
+    <div id="page-wrapper">
+        <div class="header">
+            <div class="header">
+                <h1 class="page-header">
+                    {$title}
+                </h1>
+            </div>
+        </div>
+        <div id="page-inner">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-content">
+                            <form id="znzg-form">
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="user_id" class="control-label">预约用户:</label>
+                                        <select id="user_id" name="user_id" class="form-control">
+                                            {$users_select|raw}
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="amount" class="control-label">预约水量:</label>
+                                        <input name="amount" placeholder="请输入预约水量" type="text"
+                                               class="form-control fullwidth" id="amount">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="starttime" class="control-label">生效开始时间:</label>
+                                        <input name="starttime" placeholder="请输入生效开始时间" type="text"
+                                               class="form-control fullwidth" id="starttime">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="endtime" class="control-label">生效结束时间:</label>
+                                        <input name="endtime" placeholder="请输入生效结束时间" type="text"
+                                               class="form-control fullwidth" id="endtime">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="remark" class="control-label">备注信息:</label>
+                                        <textarea name="remark" placeholder="请输入备注信息" class="form-control" rows="4" id="remark"></textarea>
+                                    </div>
+                                </div>
+                                <div class="modal-footer modal-footer-znzg">
+                                    <input type="hidden" id="id" name="id" value="">
+                                    <button type="button" id="submitBtn" class="btn btn-primary">
+                                        提交信息
+                                    </button>
+                                </div>
+                            </form>
+                            <div class="clearBoth"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

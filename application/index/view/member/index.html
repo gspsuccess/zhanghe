@@ -1,0 +1,70 @@
+<div id="wrapper">
+    <div id="page-wrapper">
+        <div class="header">
+            <h1 class="page-header">
+                {$title}
+            </h1>
+        </div>
+        <div id="page-inner">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-content">
+                            <a class="btn btn-success" data-toggle="modal" data-target="#znzg-modal"><i class="glyphicon glyphicon-plus-sign left"></i>添加记录</a>
+                            <a class="btn btn-danger btn-delete"><i class="glyphicon glyphicon-trash left"></i>删除选中</a>
+                            <div class="col-md-4 input-group pull-right">
+                                <input id="search_name" type="text" class="form-control" placeholder="请输入要搜索的名称" aria-label="...">
+                                <div class="input-group-btn">
+                                    <a class="btn btn-primary" id="search_btn">搜索</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="inner card-content">
+                <table class="table table-striped table-bordered table-hover" id="table">
+
+                </table>
+            </div>
+            <!-- 增加项目弹框 -->
+            <div class="modal fade" id="znzg-modal" tabindex="-1" role="dialog" aria-labelledby="znzg-modal-label">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="znzg-modal-label">添加记录</h4>
+                        </div>
+                        <form id="znzg-form">
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="username" class="control-label">管理员名称:</label>
+                                    <input name="username" placeholder="请输入管理员名称" type="text"
+                                           class="form-control fullwidth" id="username">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password" class="control-label">登录密码:</label>
+                                    <input name="password" placeholder="请输入登录密码" type="password"
+                                           class="form-control fullwidth" id="password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="remark" class="control-label">地块介绍:</label>
+                                    <textarea name="remark" placeholder="请输入地块介绍" class="form-control" rows="4" id="remark"></textarea>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <input type="hidden" id="id" name="id" value="">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                <button type="button" id="submitBtn" class="btn btn-primary">
+                                    提交
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/assets/js/custom/member.js"></script>
